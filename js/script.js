@@ -134,3 +134,31 @@ $(function (){
     });
   });
 
+
+
+  $(window).on('load', function(){
+       var addressString = '230 Broadway, NY, New York 10007, USA';
+       var myLating = {lat: 40.712865, lng: -74.005920}
+
+       // Render Map
+
+       var map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 11,
+         center: myLating
+       });
+
+          var marker = new google.maps.Maker({
+            position : myLating,
+            map: map
+          });
+       
+      var infowindow = new google.maps.InfoWindow({
+        content: addressString
+      });
+
+      maker.addListener('click', function() { 
+         infowindow.open(map, marker);
+      });
+
+  });    
+
