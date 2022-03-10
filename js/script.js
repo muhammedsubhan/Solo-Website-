@@ -162,3 +162,77 @@ $(function (){
 
   });    
 
+
+
+             /* Nav Bar */
+     
+$(function() {
+
+     /*Show Hide Nav On load*/
+  showHideNav();
+    
+    $(window).scroll(function(){
+
+      /*Show Hide Nav On Windows Scroll*/
+   
+      showHideNav();
+        
+    });
+
+    function showHideNav() {
+      
+      if ( $(window).scrollTop() > 50) {
+          
+        $("nav").addClass("white-nav-top");
+
+        /* For Dark Logo  */
+
+        $(".navbar-brand img").attr("src", "img/logo/logo-dark.png");
+         
+        // Show Back To Top Button
+
+       $("#back-to-top").fadeIn()
+
+      }   else{
+          
+        $("nav").removeClass("white-nav-top");  
+
+        /* For Normal Logo  */
+
+        $(".navbar-brand img").attr("src", "img/logo/logo.png");
+              
+           // Hide Back To Top Button
+
+       $("#back-to-top").fadeOut()
+
+      }
+
+    }
+
+});
+
+
+
+    /* Smooth Scrolling */
+
+
+    $(function(){
+         
+       $("a.smooth-scroll").click(function(Event){
+
+        Event.preventDefault();
+       
+          // get Section id like #about, #work, etc
+          
+          var section_id = $(this).attr("href");
+
+          $("html, body").animate({
+
+            scrollTop: $(section_id).offset().top - 64
+
+
+          }, 1250, "easeInOutExpo");
+
+       });
+
+    });
